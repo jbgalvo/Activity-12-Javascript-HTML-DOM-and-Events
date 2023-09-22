@@ -1,7 +1,6 @@
 
-/* Adding a task */
 
-//Variables
+//Declare Variables
 let todoInput = document.querySelector("#todoInput");
 let taskList = document.querySelector("#taskList");
 const btnAddTask = document.querySelector("#addTask");
@@ -22,7 +21,7 @@ btnAddTask.addEventListener("click", function() {
 
     //Insert the Input value to the li tags
     let inputValue = document.createTextNode(todoInput.value);
-    let buttonText = document.createTextNode(' X');
+    let buttonText = document.createTextNode('X');
 
     //Append LI and button tagstags    
     li.appendChild(inputValue);
@@ -32,24 +31,20 @@ btnAddTask.addEventListener("click", function() {
     taskList.appendChild(li).appendChild(button);
 
     //Marking a task as done
-    li.addEventListener("click", function() {
-      li.classList.toggle("done");
+    li.addEventListener("click", function(event) {
+      const target = event.target;
+      target.classList.toggle("done");
     });
 
-    //Deleting a tasks
-    button.addEventListener("click", function() {
-      li.remove();
-      button.remove();
+    
+    button.addEventListener("click", function(event) {
+      const target = event.currentTarget;
+      target.closest("li").remove();
     });
 
     //Initialize again to empty
     todoInput.value = '';
 
-  }
+  } // end if else
 
-});
-
-
-
-
-
+}); 
