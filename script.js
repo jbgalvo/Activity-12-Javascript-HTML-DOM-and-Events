@@ -36,13 +36,13 @@ btnAddTask.addEventListener("click", function() {
       target.classList.toggle("done");
     });
 
-    
+    //Deleting a task
     button.addEventListener("click", function(event) {
       const target = event.currentTarget;
       target.closest("li").remove();
     });
 
-    //Initialize again to empty
+    //Initialize input field to empty
     todoInput.value = '';
 
   } // end if else
